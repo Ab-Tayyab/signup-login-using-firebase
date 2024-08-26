@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase";
-import "./Signup.css";
+import { auth } from "./firebase";
+import "./userForm.css";
 
 function Signup() {
   const [error, setError] = useState({});
@@ -17,10 +17,13 @@ function Signup() {
       ...signUpData,
       [e.target.name]: e.target.value,
     });
+    if (error) setError({});
   };
 
   const validate = () => {
     const newError = {};
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
 
     if (!signUpData.name) {
       newError.name = "Enter name";
@@ -34,6 +37,9 @@ function Signup() {
 
     if (!signUpData.firstPassword) {
       newError.firstPassword = "Enter password";
+    } else if (!passwordRegex.test(signUpData.firstPassword)) {
+      newError.firstPasswordPattren =
+        "Password should follow these pattren. (Password123!)";
     } else if (!signUpData.secondPassword) {
       newError.secondPassword = "Enter password";
     } else if (signUpData.firstPassword !== signUpData.secondPassword) {
@@ -64,7 +70,6 @@ function Signup() {
           secondPassword: "",
         });
       } catch (error) {
-        console.error("Error signing up:", error);
         setError({ firebase: error.message });
       }
     }
@@ -72,14 +77,15 @@ function Signup() {
 
   return (
     <div>
-      <h1>Sign Up</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="name"
           placeholder="Enter Name"
+          autoComplete="off"
           value={signUpData.name}
           onChange={handleChange}
+          className="form-input"
         />
         <br />
         {error.name && <p className="error">{error.name}</p>}
@@ -88,8 +94,10 @@ function Signup() {
           type="email"
           name="email"
           placeholder="Enter email"
+          autoComplete="off"
           value={signUpData.email}
           onChange={handleChange}
+          className="form-input"
         />
         <br />
         {error.email && <p className="error">{error.email}</p>}
@@ -100,9 +108,13 @@ function Signup() {
           placeholder="Enter password"
           value={signUpData.firstPassword}
           onChange={handleChange}
+          className="form-input"
         />
         <br />
         {error.firstPassword && <p className="error">{error.firstPassword}</p>}
+        {error.firstPasswordPattren && (
+          <p className="error">{error.firstPasswordPattren}</p>
+        )}
 
         <input
           type="password"
@@ -110,6 +122,7 @@ function Signup() {
           placeholder="Enter password"
           value={signUpData.secondPassword}
           onChange={handleChange}
+          className="form-input"
         />
         <br />
         {error.secondPassword && (
@@ -118,7 +131,9 @@ function Signup() {
 
         {error.firebase && <p className="error">{error.firebase}</p>}
 
-        <button type="submit">Sign Up</button>
+        <button type="submit" className="btn">
+          Sign Up
+        </button>
       </form>
     </div>
   );
