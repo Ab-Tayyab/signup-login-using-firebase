@@ -3,7 +3,7 @@ import Login from "./Login";
 import Signup from "./Signup";
 import "./userForm.css";
 
-function Auth() {
+function UserForm() {
   const [isLogin, setIsLogin] = useState(true);
 
   const toggleForm = () => {
@@ -35,4 +35,4 @@ function Auth() {
   );
 }
 
-export default Auth;
+export default UserForm;
