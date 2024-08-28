@@ -1,7 +1,12 @@
 import React, { useState } from "react";
-import { signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail,
+} from "firebase/auth";
 import { auth } from "./firebase";
 import "./userForm.css";
+import { toast } from "react-toastify";
+
 
 function Login() {
   const [loginData, setLoginData] = useState({
@@ -39,14 +44,18 @@ function Login() {
     setError(errorValidation);
     if (Object.keys(errorValidation).length === 0) {
       try {
-        await signInWithEmailAndPassword(auth, loginData.email, loginData.password);
-        alert("Login successful!");
+        await signInWithEmailAndPassword(
+          auth,
+          loginData.email,
+          loginData.password
+        );
+        toast.success("Login successfull!")
         setLoginData({
           email: "",
           password: "",
         });
       } catch (error) {
-        setError({ firebase: error.message });
+        toast.error("Firebase authenication error!")
         setLoginData({
           email: "",
           password: "",
@@ -62,48 +71,54 @@ function Login() {
     }
     try {
       await sendPasswordResetEmail(auth, resetEmail);
-      setMessage("Password reset email sent. Please check your inbox.");
+      toast.success("Password reset email sent. Please check your inbox.")
       setResetEmail("");
     } catch (error) {
-      setMessage("Failed to send password reset email.");
+      toast.error("Failed to send password reset email.")
     }
   };
 
   return (
     <div>
       {!showForgotPassword ? (
-        <form onSubmit={handleSubmit}>
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            autoComplete="off"
-            value={loginData.email}
-            onChange={handleChange}
-            className="form-input"
-          />
-          {error.email && <p className="error">{error.email}</p>}
-          <br />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={loginData.password}
-            onChange={handleChange}
-            className="form-input"
-          />
-          {error.password && <p className="error">{error.password}</p>}
-          <br />
-          <button type="submit" className="btn">
-            Login
-          </button>
-          {error.firebase && <p className="error">{error.firebase}</p>}
-          <p onClick={() => setShowForgotPassword(true)} className="forgot-password-link">
-            Forgot Password?
-          </p>
-        </form>
+        <div>
+          <h1 className="form-heading">Login</h1>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              autoComplete="off"
+              value={loginData.email}
+              onChange={handleChange}
+              className="form-input"
+            />
+            {error.email && <p className="error">{error.email}</p>}
+            <br />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={loginData.password}
+              onChange={handleChange}
+              className="form-input"
+            />
+            {error.password && <p className="error">{error.password}</p>}
+            <br />
+            <button type="submit" className="btn">
+              Login
+            </button>
+            <p
+              onClick={() => setShowForgotPassword(true)}
+              className="forgot-password-link form-description"
+            >
+              Forgot Password?
+            </p>
+          </form>
+        </div>
       ) : (
         <div className="reset-password-section">
+      <h1 className="form-heading">Confirm Email</h1>
           <input
             type="email"
             placeholder="Enter your email for password reset"
@@ -115,7 +130,10 @@ function Login() {
             Reset Password
           </button>
           {message && <p className="message">{message}</p>}
-          <button onClick={() => setShowForgotPassword(false)} className="btn back-to-login">
+          <button
+            onClick={() => setShowForgotPassword(false)}
+            className="btn back-to-login"
+          >
             Back to Login
           </button>
         </div>

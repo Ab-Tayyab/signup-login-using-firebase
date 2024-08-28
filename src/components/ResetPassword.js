@@ -3,6 +3,9 @@ import { auth } from "./firebase";
 import { confirmPasswordReset } from "firebase/auth";
 import { useLocation, useNavigate } from "react-router-dom"; 
 import "./userForm.css";
+import { toast } from "react-toastify";
+
+
 
 function ResetPassword() {
   const [newPassword, setNewPassword] = useState("");
@@ -35,7 +38,8 @@ function ResetPassword() {
 
     try {
       await confirmPasswordReset(auth, oobCode, newPassword);
-      setMessage("Password has been reset successfully. Please login with your new password.");
+      setMessage("");
+      toast.success("Password has been reset successfully. Please login with your new password.")
       setTimeout(() => {
         navigate("/");
       }, 3000);

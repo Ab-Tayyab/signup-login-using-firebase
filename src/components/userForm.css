@@ -1,5 +1,14 @@
 /* userform styling */
 
+html,body{
+  padding: 0;
+  margin: 0;
+}
+.background-image {
+  height: 100vh;
+  box-sizing: border-box;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1024%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='%230e2a47'%3e%3c/rect%3e%3cpath d='M30.241%2c89.625C52.161%2c90.372%2c74.16%2c80.923%2c84.989%2c61.85C95.704%2c42.979%2c91.763%2c19.77%2c80.402%2c1.28C69.609%2c-16.286%2c50.855%2c-27.622%2c30.241%2c-27.253C10.228%2c-26.894%2c-7.008%2c-14.377%2c-16.9%2c3.024C-26.668%2c20.208%2c-27.858%2c40.967%2c-18.408%2c58.328C-8.527%2c76.48%2c9.586%2c88.921%2c30.241%2c89.625' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M144.341%2c312.395C199.861%2c309.992%2c239.089%2c263.146%2c264.652%2c213.803C287.863%2c169.001%2c292.31%2c117.142%2c268.56%2c72.623C243.311%2c25.295%2c197.968%2c-13%2c144.341%2c-11.718C92.36%2c-10.475%2c56.439%2c33.554%2c30.002%2c78.327C2.949%2c124.143%2c-18.825%2c177.254%2c4.529%2c225.062C30.379%2c277.98%2c85.502%2c314.942%2c144.341%2c312.395' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M122.411%2c253.589C171.44%2c254.085%2c222.726%2c236.918%2c245.902%2c193.709C268.179%2c152.176%2c249.307%2c103.536%2c224.337%2c63.564C201.193%2c26.515%2c166.084%2c-2.976%2c122.411%2c-3.977C77.082%2c-5.016%2c35.687%2c20.002%2c12.054%2c58.697C-12.686%2c99.204%2c-20.218%2c149.952%2c3.17%2c191.255C26.856%2c233.085%2c74.342%2c253.103%2c122.411%2c253.589' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M1272.53 -19.2 a36.27 36.27 0 1 0 72.54 0 a36.27 36.27 0 1 0 -72.54 0z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M1204.36 48.98 a172.62 172.62 0 1 0 345.24 0 a172.62 172.62 0 1 0 -345.24 0z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M1361.124%2c87.556C1383.545%2c88.611%2c1409.776%2c87.128%2c1420.664%2c67.499C1431.39%2c48.162%2c1417.48%2c26.093%2c1405.54%2c7.48C1394.89%2c-9.123%2c1380.771%2c-23.565%2c1361.124%2c-25.316C1337.991%2c-27.378%2c1312.094%2c-22.001%2c1300.487%2c-1.885C1288.883%2c18.225%2c1297.528%2c43.1%2c1310.557%2c62.318C1321.887%2c79.03%2c1340.955%2c86.607%2c1361.124%2c87.556' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M-57.22 430.54 a39.76 39.76 0 1 0 79.52 0 a39.76 39.76 0 1 0 -79.52 0z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M-71.96 445.29 a69.25 69.25 0 1 0 138.5 0 a69.25 69.25 0 1 0 -138.5 0z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M-91.94 465.28 a109.22 109.22 0 1 0 218.44 0 a109.22 109.22 0 1 0 -218.44 0z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float2'%3e%3c/path%3e%3cpath d='M1429.305%2c685.877C1476.351%2c684.921%2c1517.701%2c654.569%2c1538.636%2c612.427C1557.534%2c574.385%2c1544.964%2c531.569%2c1524.434%2c494.383C1502.973%2c455.51%2c1473.61%2c417.355%2c1429.305%2c414.395C1380.543%2c411.137%2c1333.761%2c437.711%2c1309.276%2c480.006C1284.744%2c522.382%2c1287.335%2c574.733%2c1311.998%2c617.033C1336.474%2c659.013%2c1380.721%2c686.864%2c1429.305%2c685.877' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float3'%3e%3c/path%3e%3cpath d='M1410.097%2c633.57C1444.798%2c632.741%2c1470.003%2c604.764%2c1487.416%2c574.737C1504.905%2c544.58%2c1517.942%2c508.086%2c1500.307%2c478.014C1482.811%2c448.18%2c1444.671%2c443.784%2c1410.097%2c442.888C1373.234%2c441.933%2c1330.815%2c441.764%2c1311.408%2c473.119C1291.385%2c505.469%2c1306.173%2c546.183%2c1326.105%2c578.589C1344.895%2c609.138%2c1374.242%2c634.426%2c1410.097%2c633.57' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float1'%3e%3c/path%3e%3cpath d='M1231.29 470.04 a118.75 118.75 0 1 0 237.5 0 a118.75 118.75 0 1 0 -237.5 0z' fill='rgba(28%2c 83%2c 142%2c 0.4)' class='triangle-float3'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1024'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3cstyle%3e %40keyframes float1 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-10px%2c 0)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float1 %7b animation: float1 5s infinite%3b %7d %40keyframes float2 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(-5px%2c -5px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float2 %7b animation: float2 4s infinite%3b %7d %40keyframes float3 %7b 0%25%7btransform: translate(0%2c 0)%7d 50%25%7btransform: translate(0%2c -10px)%7d 100%25%7btransform: translate(0%2c 0)%7d %7d .triangle-float3 %7b animation: float3 6s infinite%3b %7d %3c/style%3e%3c/defs%3e%3c/svg%3e");
+}
 .form-container {
   padding: 0;
   margin: 0;
@@ -12,31 +21,34 @@
   margin: auto;
   padding: 50px;
   box-sizing: border-box;
-  /* text-align: center; */
 }
 
 .form-heading {
   font-size: 50px;
   font-weight: 800;
-  color: black;
+  color: white;
   text-align: center;
 }
 
 .form-description {
   font-size: 18px;
   font-weight: 600;
+  color: white;
 }
 
 .form-description span {
   color: white;
   font-size: 18px;
   font-weight: 400;
-  background-color: black;
-  padding: 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-left: 10px;
 }
 
 .form-description span:hover {
   cursor: pointer;
+  border-width: 2px;
   border-radius: 10px;
   transition: all 0.5s;
 }
@@ -48,38 +60,49 @@
   height: 50px;
   margin-bottom: 10px;
   border: none;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid white;
   font-size: 18px;
-  box-sizing: border-box; /* Ensures padding and border are included in the width */
+  box-sizing: border-box;
+  background-color: transparent;
+  color: white;
+}
+
+.form-input::placeholder{
+  color: white;
 }
 
 .form-input:focus {
   outline: none;
-  border-bottom: 4px solid black;
+  border-bottom: 4px solid white;
   transition: all 0.3s;
 }
 
 .btn {
   width: 100%;
   height: 50px;
-  background-color: black;
+  background-color: transparent;
+  border: 1px solid white;
   font-size: 18px;
-  border: none;
   color: white;
   font-weight: 800;
-  box-sizing: border-box; /* Ensures padding and border are included in the width */
+  box-sizing: border-box;
+  margin-bottom: 10px;
 }
 
 .btn:hover {
   cursor: pointer;
-  background-color: rgb(57, 57, 57);
-  transition: all 0.5s;
+  border-width: 2px;
   border-radius: 10px;
+  transition: all 0.5s;
 }
 
 .error {
   color: red;
   font-weight: 800;
+}
+
+.forgot-password-link{
+  color: white;
 }
 
 .forgot-password-link:hover {

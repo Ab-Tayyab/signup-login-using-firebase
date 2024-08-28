@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebase";
 import "./userForm.css";
+import { toast } from "react-toastify";
 
 function Signup() {
   const [error, setError] = useState({});
@@ -62,7 +63,7 @@ function Signup() {
           signUpData.email,
           signUpData.firstPassword
         );
-        alert("User successfully registered!");
+        toast.success("User successfully register!");
         setSignUpData({
           name: "",
           email: "",
@@ -70,13 +71,14 @@ function Signup() {
           secondPassword: "",
         });
       } catch (error) {
-        setError({ firebase: error.message });
+        toast.error("Firebase authentication error!");
       }
     }
   };
 
   return (
     <div>
+      <h1 className="form-heading">Signup</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -129,7 +131,7 @@ function Signup() {
           <p className="error">{error.secondPassword}</p>
         )}
 
-        {error.firebase && <p className="error">{error.firebase}</p>}
+        {/* {error.firebase && <p className="error">{error.firebase}</p>} */}
 
         <button type="submit" className="btn">
           Sign Up

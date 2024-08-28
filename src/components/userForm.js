@@ -15,19 +15,17 @@ function UserForm() {
       <div className="form-container-child">
         {isLogin ? (
           <>
-            <h1 className="form-heading">Login</h1>
+            <Login />
             <p className="form-description">
               New Member? <span onClick={toggleForm}>Signup</span>
             </p>
-            <Login />
           </>
         ) : (
           <>
-            <h1 className="form-heading">Signup</h1>
+            <Signup />
             <p className="form-description">
               Already a Member? <span onClick={toggleForm}>Login</span>
             </p>
-            <Signup />
           </>
         )}
       </div>
